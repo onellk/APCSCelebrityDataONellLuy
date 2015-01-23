@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * Write a description of class CelebrityNames here.
  * 
- * @author Roger Jaffe
+ * @author Roger Jaffe 
  * @version 2015-01-19
  */
 public class CelebrityNames
@@ -25,19 +25,22 @@ public class CelebrityNames
         //maxIndx is now the highest index of text[], = -1 if no text lines 
         sf.close( ); //We opened a file above, so close it when finished.
 
-        String reversedName[] = new String[maxIndx + 1];
+        //String reversedName[] = new String[maxIndx + 1];
+        String allInfo[] = new String [maxIndx + 1];
         for (int j = 0; j <= maxIndx; j++)
         { 
             Scanner sc = new Scanner( text[j] );
-            String firstName = sc.next( );
-            String lastName = sc.next( );
-            reversedName[j] = lastName + ", " + firstName;
+            String firstName = sc.next();
+            String middleName = sc.next();
+            String lastName = sc.next();
+            String birthDate = sc.next();
+            allInfo[j] = lastName + ", " + firstName + " " + middleName + " -- " + birthDate;
         } 
         
-        Arrays.sort(reversedName);
+        Arrays.sort(allInfo);
         for (int j =0; j <= maxIndx; j++)
         { 
-            System.out.println(reversedName[j]);
+            System.out.println(allInfo[j]);
         } 
     }
 }
